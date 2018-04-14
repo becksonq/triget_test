@@ -27,9 +27,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel'  => $searchModel,
         'columns'      => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'room_id',
+            [
+                'attribute'     => 'id',
+                'headerOptions' => ['style' => 'width:3%'],
+            ],
+            [
+                'attribute' => 'room.hotel_name',
+            ],
             'client_name',
             [
                 'attribute' => 'phone_number',

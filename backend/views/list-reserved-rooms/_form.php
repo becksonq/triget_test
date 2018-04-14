@@ -30,7 +30,6 @@ use kartik\time\TimePicker;
     <?= $form->field($model, 'date_reserved')->widget(DatePicker::classname(), [
         'language'      => 'ru',
         'type'          => DatePicker::TYPE_COMPONENT_APPEND,
-        'value'         => date('d-M-Y', strtotime('+2 days')),
         'options'       => ['placeholder' => 'Выберите желаемую дату...'],
         'pluginOptions' => [
             'autoclose'      => true,
@@ -40,10 +39,8 @@ use kartik\time\TimePicker;
     ]) ?>
 
     <?= $form->field($model, 'time_reserved')->widget(TimePicker::classname(), [
-        'value'         => $model->time_reserved,
         'pluginOptions' => [
             'showMeridian' => false,
-            'showSeconds'  => true,
             'format'       => 'H:i:s',
         ]
     ]) ?>

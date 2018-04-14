@@ -55,6 +55,7 @@ class ListReservedRooms extends ActiveRecord
         return [
             [['room_id', 'created_at', 'updated_at'], 'integer'],
             [['date_reserved', 'time_reserved'], 'required'],
+            [['date_reserved', 'time_reserved'], 'safe'],
             [['client_name'], 'string', 'max' => 255],
             [['phone_number'], 'string', 'max' => 25],
             [['room_id'], 'unique'],
@@ -98,16 +99,6 @@ class ListReservedRooms extends ActiveRecord
             return true;
         }
         return false;
-    }
-
-    /**
-     *
-     */
-    public function afterFind()
-    {
-        $this->date_reserved = date('d-m-Y', strtotime($this->date_reserved));
-        $this->time_reserved = date('H:i:s', strtotime($this->time_reserved));
-        parent::afterFind();
     }
 
     /**

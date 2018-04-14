@@ -66,11 +66,6 @@ class ListReservedRoomsController extends Controller
     {
         $model = new ListReservedRooms();
 
-//        d(Yii::$app->request->post('ListReservedRooms')['time_reserved']);
-//        d(strtotime(Yii::$app->request->post('ListReservedRooms')['time_reserved']));
-//
-//        die;
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -91,11 +86,8 @@ class ListReservedRoomsController extends Controller
     {
         $model = $this->findModel($id);
         $model->phone_number = substr($model->phone_number, ListReservedRooms::PHONE_NUM_REMOVE);
-
-//        d(Yii::$app->request->post('ListReservedRooms')['time_reserved']);
-//        d(strtotime(Yii::$app->request->post('ListReservedRooms')['time_reserved']));
-//        d(strtotime(Yii::$app->request->post('ListReservedRooms')['date_reserved']));
-//        die;
+        $model->date_reserved = Yii::$app->formatter->asDate($model->date_reserved);
+        $model->time_reserved = Yii::$app->formatter->asTime($model->time_reserved);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
