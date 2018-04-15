@@ -67,4 +67,33 @@ class DirectoryNumberHotelsSearch extends DirectoryNumberHotels
 
         return $dataProvider;
     }
+
+    /**
+     * @param $params
+     * @return ActiveDataProvider
+     */
+    public function searchRooms($params)
+    {
+        $query = DirectoryNumberHotels::find();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
+
+        $this->load($params);
+        if (!$this->validate()) {
+            // uncomment the following line if you do not want to return any records when validation fails
+            // $query->where('0=1');
+            return $dataProvider;
+        }
+        $query->andFilterWhere([
+            'id' => $this->id,
+        ]);
+        $query->andFilterWhere(['like', 'hotel_name', $this->hotel_name])
+            ->andFilterWhere(['like', 'description', $this->description]);
+
+        return $dataProvider;
+    }
 }

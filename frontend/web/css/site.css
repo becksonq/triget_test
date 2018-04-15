@@ -118,3 +118,43 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+/* */
+
+.navbar-fixed-top {
+    border-width: 0 0 3px;
+}
+
+.navbar-inverse {
+    background-color: #D5EDF7;
+    border-color: #48C8F5;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    color: #333;
+    background-color: #48C8F5;
+}
+
+.navbar-inverse .btn-link {
+    color: #666;
+}
+
+.navbar-inverse .btn-link:hover, .navbar-inverse .btn-link:focus {
+    color: #333;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #666;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: #333;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #666;
+}
+
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+    color: #333;
+}
